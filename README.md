@@ -4,7 +4,7 @@ Dashboard Kanban de práctica — proyecto del grupo de desarrollo.
 
 ## Cómo levantar el proyecto
 
-1. Clonar el repositorio: `git clone URL_DEL_REPOSITORIO`
+1. Clonar el repositorio: `git clone https://github.com/SlayerCampo/taskflow-kanban`
 2. Instalar dependencias del backend: `npm install`
 3. Importar la base de datos: ejecutar `database/esquema.sql` y luego `database/seed.sql`
 4. Copiar `.env.example` como `.env` y llenarlo con tus datos locales
