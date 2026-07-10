@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow Kanban</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/kanban.css" />
+</head>
+<body class="bg-[#0F172A] text-[#F8FAFC]">
+
+  <!-- =====================================================================
+       ZONA A — NAV / HEADER  (líneas ~20-45)
+       Encargado: Dev Frontend 1
+       Reglas: SOLO edita dentro de <header>...</header>.
+       No toques nada fuera de estas marcas para evitar conflictos con Dev 2.
+  ====================================================================== -->
+  <header id="app-header" class="p-4 border-b border-[#1E293B]">
+    <nav class="flex items-center justify-between">
+      <span class="font-bold text-lg">TaskFlow</span>
+      <div id="user-info" class="text-sm text-[#94A3B8]"><!-- login/usuario va aquí --></div>
+    </nav>
+  </header>
+  <!-- ===================== FIN ZONA A ===================== -->
+
+
+  <!-- =====================================================================
+       ZONA B — TABLERO KANBAN (columnas y tarjetas)  (líneas ~50-90)
+       Encargado: Dev Frontend 2
+       Reglas: SOLO edita dentro de <main>...</main>.
+  ====================================================================== -->
+  <main id="kanban-board" class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+    <section class="column" data-status="por_hacer">
+      <h2 class="font-semibold mb-2">Por Hacer</h2>
+      <div class="task-list" id="list-por_hacer"><!-- tarjetas generadas por kanban.js --></div>
+    </section>
+
+    <section class="column" data-status="en_progreso">
+      <h2 class="font-semibold mb-2">En Progreso</h2>
+      <div class="task-list" id="list-en_progreso"></div>
+    </section>
+
+    <section class="column" data-status="terminado">
+      <h2 class="font-semibold mb-2">Terminado</h2>
+      <div class="task-list" id="list-terminado"></div>
+    </section>
+  </main>
+  <!-- ===================== FIN ZONA B ===================== -->
+
+
+  <!-- =====================================================================
+       ZONA C — MODAL DE CREAR/EDITAR TAREA
+       Encargado: quien termine primero entre Dev 1 y Dev 2 (avisar en el grupo)
+  ====================================================================== -->
+  <div id="task-modal" class="hidden fixed inset-0 bg-black/50 items-center justify-center">
+    <!-- formulario de tarea aquí -->
+  </div>
+  <!-- ===================== FIN ZONA C ===================== -->
+
+
+  <!-- =====================================================================
+       ZONA D — FOOTER (opcional, baja prioridad)
+  ====================================================================== -->
+  <footer class="p-4 text-center text-xs text-[#94A3B8]">
+    TaskFlow Kanban — Proyecto de práctica
+  </footer>
+  <!-- ===================== FIN ZONA D ===================== -->
+
+  <script src="js/app.js"></script>
+  <script src="js/kanban.js"></script>
+</body>
+</html>

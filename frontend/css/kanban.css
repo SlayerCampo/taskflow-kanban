@@ -1,0 +1,27 @@
+/* ============================================================
+   kanban.css — Estilos del TABLERO y las TARJETAS
+   Encargado: Dev Frontend 2
+   No agregues aquí estilos globales/header: eso va en styles.css
+============================================================ */
+
+/* ---------- ZONA A: Columnas ---------- */
+.column {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 12px;
+  min-height: 300px;
+}
+
+/* ---------- ZONA B: Tarjetas de tarea ---------- */
+.task-card {
+  background-color: #263244;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* ---------- ZONA C: Colores según prioridad ---------- */
+.priority-alta   { border-left: 4px solid var(--priority-high); }
+.priority-media  { border-left: 4px solid var(--priority-medium); }
+.priority-baja   { border-left: 4px solid var(--priority-low); }

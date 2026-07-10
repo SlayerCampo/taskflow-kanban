@@ -1,0 +1,31 @@
+/* ============================================================
+   styles.css — Estilos GLOBALES (header, footer, variables, reset)
+   Encargado: Dev Frontend 1
+   No agregues aquí estilos del tablero/tarjetas: eso va en kanban.css
+============================================================ */
+
+/* ---------- ZONA A: Variables de color (paleta oficial del SRS) ---------- */
+:root {
+  --bg-main: #0F172A;
+  --bg-card: #1E293B;
+  --accent: #6D28D9;
+  --text-main: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --priority-high: #EF4444;
+  --priority-medium: #F59E0B;
+  --priority-low: #10B981;
+}
+
+/* ---------- ZONA B: Reset básico ---------- */
+* { box-sizing: border-box; }
+body { font-family: "Inter", "Roboto", sans-serif; margin: 0; }
+
+/* ---------- ZONA C: Header / Nav ---------- */
+#app-header {
+  background-color: var(--bg-main);
+}
+
+/* ---------- ZONA D: Footer ---------- */
+footer {
+  background-color: var(--bg-main);
+}

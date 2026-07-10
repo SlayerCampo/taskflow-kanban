@@ -1,0 +1,11 @@
+# Dependencias (se regeneran con npm install, no se suben)
+node_modules/
+
+# Variables de entorno reales (secretas, nunca se suben)
+.env
+
+# Archivos del sistema operativo / editor
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
