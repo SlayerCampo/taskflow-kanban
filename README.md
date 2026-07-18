@@ -1,93 +1,40 @@
-> [!IMPORTANT]
-> **Por favor, lee este documento completo antes de empezar a escribir código o subir cambios.**
+# TaskFlow Kanban
 
-## 🛠 Guía de Contribución y Flujo de Trabajo con Git
+Dashboard Kanban de práctica — proyecto del grupo de desarrollo.
 
-Para mantener nuestro proyecto ordenado y evitar conflictos que nos cuesten tiempo, **todo el equipo debe seguir estrictamente este flujo de trabajo**.
+## Cómo levantar el proyecto
 
-### 1. Clonar el repositorio
-El primer paso es traer el código a tu máquina local.
-```bash
-git clone <url_del_repositorio>
-```
+1. Clonar el repositorio: `git clone URL_DEL_REPOSITORIO`
+2. Instalar dependencias del backend: `npm install`
+3. Importar la base de datos: ejecutar `database/esquema.sql` y luego `database/seed.sql`
+4. Copiar `.env.example` como `.env` y llenarlo con tus datos locales
+5. Encender el servidor: `npm start` (por defecto en `http://localhost:5000`)
+6. Abrir `frontend/index.html` con la extensión **Live Server** de VS Code
 
-### 2. Selección de Rama
-El proyecto está dividido en dos ramas principales: `frontend` y `backend`. Dependiendo de tu equipo o tarea, debes cambiar a la rama correspondiente.
-```bash
-# Si eres del equipo de Frontend:
-git checkout frontend
+## Estructura de zonas (para evitar conflictos en Git)
 
-# Si eres del equipo de Backend:
-git checkout backend
-```
+Cada archivo del `frontend/` y del `backend/` está dividido en bloques comentados
+tipo `ZONA A`, `ZONA B`, etc. Cada persona del equipo edita **solo su zona**
+asignada dentro del archivo. Esto evita que dos personas toquen las mismas
+líneas al mismo tiempo y reduce muchísimo los conflictos al hacer merge.
 
-### 3. La Regla de Oro del Espacio de Trabajo 🥇
-> [!CAUTION]
-> **Solo debes modificar los archivos que se encuentran dentro de la carpeta con el mismo nombre que tu rama.**
-> - Si estás en la rama `frontend`, **solo tocas** los archivos dentro de la carpeta `frontend/` (ej. `frontend/js/app.js`, `frontend/js/kanban.js`, `frontend/css/`).
-> - Si estás en la rama `backend`, **solo tocas** los archivos dentro de la carpeta `backend/` (ej. `backend/server.js`, `backend/routes/`).
+| Archivo | Zonas | Responsable |
+|---|---|---|
+| `frontend/index.html` | A: Nav/Header · B: Tablero · C: Modal · D: Footer | Frontend 1 (A, D) / Frontend 2 (B, C) |
+| `frontend/css/styles.css` | Estilos globales | Frontend 1 |
+| `frontend/css/kanban.css` | Estilos del tablero/tarjetas | Frontend 2 |
+| `frontend/js/app.js` | Login y sesión | Frontend 1 |
+| `frontend/js/kanban.js` | Lógica del tablero | Frontend 2 |
+| `backend/routes/auth.routes.js` + `controllers/auth.controller.js` | Autenticación | Backend 1 |
+| `backend/routes/tasks.routes.js` + `controllers/tasks.controller.js` | Tareas | Backend 2 |
+| `backend/middlewares/auth.middleware.js` | Seguridad | DevSecOps/QA |
+| `database/*.sql` | Esquema y datos de prueba | Base de Datos |
 
-### 4. Guardar Cambios (Add y Commit)
-A medida que avances con tus tareas, asegúrate de empaquetar tus cambios de forma clara:
-```bash
-# Agregar todos los cambios
-git add .
+## Nota sobre los datos falsos (mock)
 
-# O agregar archivos específicos
-git add frontend/js/kanban.js
-
-# Hacer el commit con un mensaje descriptivo
-git commit -m "feat: Se agregó la función de arrastrar y soltar en el tablero kanban"
-```
-
-### 5. Recomendación de Seguridad antes del Push
-Antes de subir tus cambios, **siempre** trae las últimas actualizaciones de tu rama para evitar problemas o conflictos de código.
-```bash
-git pull origin <rama>
-```
-*(Reemplaza `<rama>` por `frontend` o `backend`)*
-
-### 6. Subida de Cambios (Push)
-Sube tu progreso al repositorio remoto:
-```bash
-git push origin <rama>
-```
-
-### 7. PASO FINAL OBLIGATORIO: Pull Requests (PR)
-> [!WARNING]
-> **ESTÁ TOTALMENTE PROHIBIDO HACER MERGE DIRECTAMENTE A LA RAMA PRINCIPAL (MAIN/MASTER).**
->
-> Para que tus cambios sean aprobados y unidos al proyecto final, es **obligatorio abrir un Pull Request (PR)** en nuestra plataforma (GitHub/GitLab). Esto me permite a mí (como líder/administrador) revisar tu código, hacer pruebas y finalmente aceptar los cambios de forma segura.
-
----
-
-## 🎭 Trabajo Independiente y Uso de "Mocks"
-
-Para que podamos avanzar a toda velocidad sin bloquearnos unos a otros, estamos trabajando con **Mocks (simulaciones de datos)**.
-
-### ¿Qué es un mock y por qué lo usamos?
-Un **mock** es simplemente una imitación de los datos (como un JSON falso o variables en memoria) que eventualmente nos enviará el servidor real o la base de datos.
-
-Gracias a los mocks:
-- **El equipo de Frontend** y **el equipo de Backend** pueden avanzar de forma **100% independiente**.
-- Aunque el Backend no esté completamente listo o la base de datos no esté conectada, el Frontend puede probar cómo se ven las tarjetas del **Tablero Kanban**, la experiencia visual del inicio de sesión y las alarmas de las tareas, garantizando que todo el flujo de la interfaz funcione.
-
-**Ejemplo Práctico en nuestro Proyecto:**
-Actualmente en el Frontend (dentro de archivos como `frontend/js/app.js` y `frontend/js/kanban.js`), podrías encontrar estructuras marcadas como datos falsos o de prueba. Todo el flujo interactivo de Drag-and-Drop, login y visualización funciona con ellos. **Cuando el Backend (`backend/server.js`) y sus controladores estén listos y conectados a la base de datos, únicamente cambiaremos la fuente de datos para llamar a la API real**, sin tener que reprogramar la interfaz.
-
----
-
-## 🌟 Título y Descripción del Proyecto: TaskFlow Kanban
-
-**TaskFlow Kanban** es un sistema integral de organización y productividad enfocado en el rendimiento, la estética y la facilidad de uso. 
-
-### Características Principales
-| Característica | Descripción |
-| --- | --- |
-| 📋 **Dashboard Kanban** | Tablero visual de tareas interactivo con funciones fluidas de *arrastrar y soltar* (drag-and-drop). |
-| 🔐 **Autenticación** | Sistema seguro de inicio de sesión y gestión de tu cuenta. |
-| ⏱️ **Estudio y Alarmas** | Herramientas integradas como métodos de estudio (ej. Pomodoro), alertas y recordatorios. |
-| ✨ **Diseño Moderno** | Interfaz estética, limpia, intuitiva y moderna ("bonita y fácil de usar"). |
-
-### 🚀 Visión a Futuro
-Actualmente, TaskFlow Kanban está enfocado como una herramienta muy potente de **uso individual**. Sin embargo, la meta clara a futuro es transformarlo en una **plataforma online, multiusuario y colaborativa en tiempo real** para gestionar flujos de trabajo complejos con todo tu equipo.
+Mientras el Backend y la Base de Datos real no estén conectados, el Frontend
+usa datos de ejemplo (`MOCK_TASKS`, `MOCK_USER`) directamente en el JS, y el
+Backend usa un `db.js` con datos en memoria. Cuando cada pieza real esté lista,
+solo hay que reemplazar esas partes marcadas con `TODO` — el resto del código
+no debería necesitar cambios. Así todo el equipo puede trabajar en paralelo
+desde el día uno.
