@@ -1,40 +1,69 @@
 # TaskFlow Kanban
 
-Dashboard Kanban de práctica — proyecto del grupo de desarrollo.
+¡Bienvenido al proyecto TaskFlow Kanban! Esta es una aplicación de gestión de tareas ágil.
 
-## Cómo levantar el proyecto
+## 🚨 ¡IMPORTANTE! Flujo de Trabajo y Reglas del Repositorio
 
-1. Clonar el repositorio: `git clone URL_DEL_REPOSITORIO`
-2. Instalar dependencias del backend: `npm install`
-3. Importar la base de datos: ejecutar `database/esquema.sql` y luego `database/seed.sql`
-4. Copiar `.env.example` como `.env` y llenarlo con tus datos locales
-5. Encender el servidor: `npm start` (por defecto en `http://localhost:5000`)
-6. Abrir `frontend/index.html` con la extensión **Live Server** de VS Code
+Para evitar conflictos al hacer *merge* y asegurar que todos podamos trabajar sin pisarnos los pies, sigue **estrictamente** estas reglas.
 
-## Estructura de zonas (para evitar conflictos en Git)
+### 1. Clonar el repositorio
 
-Cada archivo del `frontend/` y del `backend/` está dividido en bloques comentados
-tipo `ZONA A`, `ZONA B`, etc. Cada persona del equipo edita **solo su zona**
-asignada dentro del archivo. Esto evita que dos personas toquen las mismas
-líneas al mismo tiempo y reduce muchísimo los conflictos al hacer merge.
+Para empezar a trabajar, cada miembro del equipo debe clonar este repositorio en su computadora:
 
-| Archivo | Zonas | Responsable |
-|---|---|---|
-| `frontend/index.html` | A: Nav/Header · B: Tablero · C: Modal · D: Footer | Frontend 1 (A, D) / Frontend 2 (B, C) |
-| `frontend/css/styles.css` | Estilos globales | Frontend 1 |
-| `frontend/css/kanban.css` | Estilos del tablero/tarjetas | Frontend 2 |
-| `frontend/js/app.js` | Login y sesión | Frontend 1 |
-| `frontend/js/kanban.js` | Lógica del tablero | Frontend 2 |
-| `backend/routes/auth.routes.js` + `controllers/auth.controller.js` | Autenticación | Backend 1 |
-| `backend/routes/tasks.routes.js` + `controllers/tasks.controller.js` | Tareas | Backend 2 |
-| `backend/middlewares/auth.middleware.js` | Seguridad | DevSecOps/QA |
-| `database/*.sql` | Esquema y datos de prueba | Base de Datos |
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd taskflow-kanban
+```
 
-## Nota sobre los datos falsos (mock)
+### 2. Ramas de Trabajo (Branches)
 
-Mientras el Backend y la Base de Datos real no estén conectados, el Frontend
-usa datos de ejemplo (`MOCK_TASKS`, `MOCK_USER`) directamente en el JS, y el
-Backend usa un `db.js` con datos en memoria. Cuando cada pieza real esté lista,
-solo hay que reemplazar esas partes marcadas con `TODO` — el resto del código
-no debería necesitar cambios. Así todo el equipo puede trabajar en paralelo
-desde el día uno.
+Tenemos dos ramas principales en las que debes trabajar, dependiendo de tu rol. **Nadie debe trabajar directamente en `main`.**
+
+#### 🎨 Equipo Frontend
+Si tu rol es desarrollar la interfaz gráfica (HTML, CSS, JavaScript del cliente), debes trabajar **únicamente** en la rama `frontend`:
+
+```bash
+git checkout frontend
+git pull origin frontend
+```
+
+#### ⚙️ Equipo Backend
+Si tu rol es desarrollar el servidor, la API o la base de datos (Node.js, Express, DB), debes trabajar **únicamente** en la rama `backend`:
+
+```bash
+git checkout backend
+git pull origin backend
+```
+
+---
+
+### 3. Regla de Oro: ¡No toques carpetas que no te corresponden!
+
+*   **Equipo Frontend:** **SOLO** puedes editar, crear o eliminar archivos dentro de la carpeta `frontend/`. No modifiques nada dentro de `backend/` ni archivos de configuración de la raíz (salvo que se acuerde en equipo).
+*   **Equipo Backend:** **SOLO** puedes editar, crear o eliminar archivos dentro de la carpeta `backend/`. No modifiques nada dentro de `frontend/`.
+
+> **💡 Tip:** Si abres un archivo, lee los comentarios en la parte superior. Hemos dejado instrucciones detalladas (como "ZONA A", "ZONA B") y comentarios en el código sobre qué debes hacer y qué áreas te corresponden editar para que no te pierdas.
+
+---
+
+### 4. Buenas Prácticas
+
+1.  **Haz commits pequeños y descriptivos:** `git commit -m "feat: añadir botón de eliminar tarea"` en lugar de `git commit -m "cambios"`.
+2.  **Sincroniza frecuentemente:** Antes de empezar a programar, haz `git pull origin <tu-rama>` para traer los últimos cambios de tus compañeros.
+3.  **Comenta tu código:** Especialmente las lógicas complejas. ¡Tus compañeros te lo agradecerán!
+4.  **No subas basura:** Asegúrate de que `.gitignore` esté funcionando y no subas carpetas como `node_modules`.
+
+---
+
+## 🚀 Visión a Futuro: ¿Qué será TaskFlow Kanban?
+
+Actualmente tenemos la base, pero nuestro objetivo es construir una plataforma robusta. Estas son las funcionalidades futuras que desarrollaremos:
+
+1.  **Autenticación Real (JWT):** Los usuarios podrán registrarse e iniciar sesión de forma segura para tener sus propios tableros privados.
+2.  **Base de Datos en Producción:** Conexión a una base de datos real (PostgreSQL/MySQL o MongoDB) para persistencia total.
+3.  **Múltiples Tableros:** Los usuarios no estarán limitados a un solo tablero; podrán crear tableros distintos para diferentes proyectos.
+4.  **Colaboración en Tiempo Real:** Integración de WebSockets (ej. Socket.io) para que si dos personas ven el mismo tablero, los cambios (mover tareas) se reflejen al instante sin recargar.
+5.  **Asignación y Etiquetas:** Poder asignar tareas a miembros específicos y usar etiquetas de colores (Prioridad Alta, Bug, Feature).
+6.  **Modo Oscuro:** Indispensable para cualquier aplicación moderna.
+
+¡Mucho éxito a todos y a programar!
