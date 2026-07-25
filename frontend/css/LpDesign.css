@@ -1,0 +1,19 @@
+/*
+El CSS de la landing page se encuentra en proceso de desarrollo,
+por lo que cualquier idea y/o sugerencia será bien recibida por 
+el equipo de frontend.
+*/
+
+#register-button {
+  background-color: #0F172A;
+  color: #F8FAFC;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+#register-button:hover {
+  background-color: #1E293B;
+  border-color: #6D28D9;
+}
+
