@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Inicio | TaskFlow Kanban</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/LpDesign.css" />
+    
+</head>
+
+<!-- Encabezado de la pagina -->
+<body class="bg-[#0F172A] text-[#F8FAFC]">
+ <header id="app-header" class="p-4 border-b border-[#1E293B]">
+    <nav class="flex items-center justify-between">
+    <span class="font-bold text-lg">TaskFlow</span>
+<span id="user-info" class="text-sm text-[#94A3B8]"> <!-- Pendiente a revision del nombre del id-->
+    <button id="login-button" class="bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold py-2 px-4 rounded">ver tareas</button>
+    <button id="register-button" class="bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold py-2 px-4 rounded">registrarse</button>
+    </span>
+    </nav>
+ </header>
+
+ <!-- Contenido principal de la página de inicio -->
+ <main class="flex flex-col items-center justify-center min-h-screen p-4">
+    <h1 class="text-5xl font-bold mb-14">Bienvenido a TaskFlow Kanban</h1>
+    <p class="text-lg text-[#94A3B8] mb-6 text-center">Organiza tus tareas de manera eficiente con nuestro tablero Kanban. Crea, edita y mueve tus tareas entre las columnas de "Por Hacer", "En Progreso" y "Terminado".</p>
+    <div class="flex space-x-4">
+        <button id="login-button" class="bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold py-2 px-4 rounded">Iniciar Sesión</button>
+        <button id="register-button" class="bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold py-2 px-4 rounded">Registrarse</button>
+    </div>
+ </main>
+
+ <!-- Pie de página -->
+ <footer class="main-footer bg-[#1E293B] text-[#94A3B8] p-4 text-center">
+    <p>© Copyright TaskFlow Kanban - Proyecto de Desarrollo Web Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
