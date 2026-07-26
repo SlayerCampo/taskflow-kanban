@@ -12,10 +12,10 @@
 
 <!-- Encabezado de la pagina -->
 <body class="bg-[#0F172A] text-[#F8FAFC]">
- <header id="app-header" class="p-4 border-b border-[#1E293B]">
+ <header id="navbar" class="p-4 border-b border-[#1E293B]">
     <nav class="flex items-center justify-between">
     <span class="font-bold text-lg">TaskFlow</span>
-<span id="user-info" class="text-sm text-[#94A3B8]"> <!-- Pendiente a revision del nombre del id-->
+    <span id="user-info" class="text-sm text-[#94A3B8]"> <!-- Pendiente a revision del nombre del id-->
     <button id="login-button" class="bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold py-2 px-4 rounded">ver tareas</button>
     <button id="register-button" class="bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold py-2 px-4 rounded">registrarse</button>
     </span>
@@ -23,7 +23,7 @@
  </header>
 
  <!-- Contenido principal de la página de inicio -->
- <main class="flex flex-col items-center justify-center min-h-screen p-4">
+ <main id="main-content" class="flex flex-col items-center justify-center min-h-screen p-4">
     <h1 class="text-5xl font-bold mb-14">Bienvenido a TaskFlow Kanban</h1>
     <p class="text-lg text-[#94A3B8] mb-6 text-center">Organiza tus tareas de manera eficiente con nuestro tablero Kanban. Crea, edita y mueve tus tareas entre las columnas de "Por Hacer", "En Progreso" y "Terminado".</p>
     <div class="flex space-x-4">
