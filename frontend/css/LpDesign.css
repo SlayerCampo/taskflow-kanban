@@ -3,7 +3,7 @@ El CSS de la landing page se encuentra en proceso de desarrollo,
 por lo que cualquier idea y/o sugerencia será bien recibida por 
 el equipo de frontend.
 */
-#navbar {
+.navbar {
   background-color: var(--bg-main);
     box-shadow: none;
     cursor: default;
@@ -13,7 +13,17 @@ el equipo de frontend.
     width: 100vw;
     z-index: 100;
 }
-#register-button {
+.login-button {
+  background-color: #6D28D9;
+  color: #F8FAFC;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+  .login-button:hover {
+    background-color: #5B21B6; 
+}
+.register-button {
   background-color: #0F172A;
   color: #F8FAFC;
   border: 1px solid #334155;
@@ -21,12 +31,12 @@ el equipo de frontend.
   cursor: pointer;
 
 }
-#register-button:hover {
+.register-button:hover {
   background-color: #1E293B;
   border-color: #6D28D9;
 }
 
-#main-content {
+.main-content {
   padding-top: 40px; /* Ajusta este valor según la altura de tu navbar */
 }
  
